@@ -16,8 +16,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className="mb-2">
         <Label className={cn(
           "text-xs",
+          "mb-1",
           errorMessage ? "text-red-400" : null,
-        )}>{label}</Label>
+        )}>
+          {label}
+        </Label>
         <input
           type={type}
           className={cn(

@@ -1,6 +1,6 @@
 import { FieldErrors, UseFormRegister, UseFormSetValue } from "react-hook-form"
 
-export type FormChildrenProps = {
+export type FormProps = {
     register: UseFormRegister<any>,
     errors: FieldErrors<any>,
     setValue: UseFormSetValue<any>,

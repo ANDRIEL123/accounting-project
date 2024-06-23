@@ -37,18 +37,19 @@ import {
 
 import { OpenDialogProps, useDialogContext } from "@/contexts/Dialog";
 import { httpDelete, httpGet, httpPost, httpPut } from "@/services";
-import { FormChildrenProps } from "@/types/FormChildrenProps";
+import { FormProps } from "@/types/FormProps";
 import { Add, Delete, Edit } from '@mui/icons-material';
 import { Tooltip } from "@mui/material";
+import { isEmpty } from "lodash";
 import Form from "../Form";
 import { Loader } from "../Loader";
 import { Checkbox } from "../ui/checkbox";
 
 type DataTableProps = {
     columns: ColumnDef<any>[],
-    searchFor: string,
+    searchFor?: string,
     endpoint: string,
-    form: (props: FormChildrenProps) => JSX.Element,
+    form: (props: FormProps) => JSX.Element,
     customActionsComponent?: (props: any) => JSX.Element,
     schema: z.ZodObject<any>,
     dialogTitleKey?: string,
@@ -85,7 +86,7 @@ const getColumnsActions = (
     refetch: <TPageData>(options?:
         (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined) =>
         Promise<QueryObserverResult<any, unknown>>,
-    form: (props: FormChildrenProps) => JSX.Element,
+    form: (props: FormProps) => JSX.Element,
     schema: z.ZodObject<any>,
     closeDialog: () => void,
     customActionsComponent?: (props: any) => JSX.Element,
@@ -246,14 +247,19 @@ export function DataTable(props: DataTableProps) {
                             }}
                         />
                     </Tooltip>
-                    <Input
-                        placeholder="Pesquise..."
-                        value={(table.getColumn(searchFor)?.getFilterValue() as string) ?? ""}
-                        onChange={(event) =>
-                            table.getColumn(searchFor)?.setFilterValue(event.target.value)
-                        }
-                        className="max-w-sm ml-2 mt-2"
-                    />
+                    {
+                        !isEmpty(searchFor) ? (
+                            <Input
+                                placeholder="Pesquise..."
+                                value={(table.getColumn(searchFor ?? "")?.getFilterValue() as string) ?? ""}
+                                onChange={(event) =>
+                                    table.getColumn(searchFor ?? "")?.setFilterValue(event.target.value)
+                                }
+                                className="max-w-sm ml-2 mt-2"
+                            />
+                        ) : null
+                    }
+
                 </div>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>

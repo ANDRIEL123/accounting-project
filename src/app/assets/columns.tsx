@@ -27,27 +27,5 @@ export const columns: ColumnDef<any>[] = [
                 </div>
             )
         }
-    },
-    {
-        accessorKey: 'icmsCredit',
-        header: 'ICMS crédito',
-        cell: ({ row }) => {
-            return (
-                <div>
-                    {formatCurrency(row.getValue("icmsCredit"))}
-                </div>
-            )
-        }
-    },
-    {
-        accessorKey: 'icmsDebit',
-        header: 'ICMS débito',
-        cell: ({ row }) => {
-            return (
-                <div>
-                    {formatCurrency(row.getValue("icmsDebit"))}
-                </div>
-            )
-        }
     }
 ]

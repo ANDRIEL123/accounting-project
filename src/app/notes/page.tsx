@@ -5,30 +5,27 @@ import Header from "@/components/Header"
 import { Typography } from "@mui/material"
 import { Suspense } from "react"
 import { columns } from "./columns"
-import CustomActions from "./customActions"
 import Form from "./form"
 import { schema } from './form/schema'
 
-const ProductsPage = () => {
+const ClientsPage = () => {
     return (
         <>
             <Header />
             <Typography className="ml-5 mt-5 text-2xl text-center">
-                {'Gerenciamento de Produtos '}
+                {'Gerenciamento de Notas Fiscais '}
             </Typography>
             <Suspense fallback={<p>Carregando...</p>}>
                 <DataTable
                     columns={columns}
-                    searchFor="name"
-                    endpoint="/products"
+                    endpoint="/notes"
                     form={Form}
                     schema={schema}
-                    dialogTitleKey="Produtos"
-                    customActionsComponent={CustomActions}
+                    dialogTitleKey="Notas Fiscais"
                 />
             </Suspense>
         </>
     )
 }
 
-export default ProductsPage
+export default ClientsPage

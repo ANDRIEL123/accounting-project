@@ -1,10 +1,14 @@
+import ComboBoxInput from '@/components/ComboBoxInput';
+import { SelectInput } from '@/components/SelectInput';
 import { Input } from '@/components/ui/input';
-import { FormChildrenProps } from '@/types/FormChildrenProps';
+import { FormProps } from '@/types/FormProps';
 
-function Form(props: FormChildrenProps) {
+function Form(props: FormProps) {
     const {
         errors,
-        register
+        register,
+        setValue,
+        item
     } = props
 
     return (
@@ -19,7 +23,6 @@ function Form(props: FormChildrenProps) {
                 placeholder="Preço de compra"
                 label="Informe o preço de compra"
                 type='number'
-                step="0.01"
                 errorMessage={errors.purchasePrice?.message}
                 {...register('purchasePrice')}
             />
@@ -27,9 +30,26 @@ function Form(props: FormChildrenProps) {
                 placeholder="Preço de venda"
                 label="Informe o preço de venda"
                 type='number'
-                step="0.01"
                 errorMessage={errors.sellingPrice?.message}
                 {...register('sellingPrice')}
+            />
+            <SelectInput
+                label="Tipo"
+                options={[
+                    { label: 'Bens', value: 0 },
+                    { label: 'Produtos', value: 1 }
+                ]}
+                register={register('type')}
+                initialValue={item?.type}
+                errorMessage={errors.type?.message}
+            />
+            <ComboBoxInput
+                endpoint='accounts'
+                label='Conta Contábil'
+                register={register('accountId')}
+                errorMessage={errors.accountId?.message}
+                setValue={setValue}
+                item={item}
             />
         </>
     )

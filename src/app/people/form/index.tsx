@@ -1,8 +1,8 @@
 import { SelectInput } from '@/components/SelectInput';
 import { Input } from '@/components/ui/input';
-import { FormChildrenProps } from '@/types/FormChildrenProps';
+import { FormProps } from '@/types/FormProps';
 
-function Form(props: FormChildrenProps) {
+function Form(props: FormProps) {
     const {
         errors,
         register,

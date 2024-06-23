@@ -1,4 +1,4 @@
-import { FormChildrenProps } from '@/types/FormChildrenProps';
+import { FormProps } from '@/types/FormProps';
 import { populateFormOnOpen } from '@/utils/zodUtilities';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useEffect } from 'react';
@@ -9,7 +9,7 @@ import { Button } from '../ui/button';
 type FormBaseProps = {
     schema: z.ZodObject<any>,
     onSubmit: (data: any) => void,
-    formComponent: React.ComponentType<FormChildrenProps>,
+    formComponent: React.ComponentType<FormProps>,
     createMode: boolean,
     item?: any
 }
@@ -35,7 +35,7 @@ function Form(props: FormBaseProps) {
         createMode,
         setValue,
         item
-    } as FormChildrenProps
+    } as FormProps
 
     // Se for atualização quando abrir preenche os dados
     useEffect(() => {

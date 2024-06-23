@@ -17,5 +17,15 @@ export const schema = z.object({
         z.number({
             required_error: 'O preço de venda é obrigatório'
         })
-    ])
+    ]),
+    accountId: z.union([
+        z.number({
+            required_error: 'A conta contábil é obrigatória'
+        }),
+        z.string()
+            .nonempty('A conta contábil é obrigatória')
+    ]),
+    type: z.number({
+        required_error: 'O tipo é obrigatório'
+    })
 });

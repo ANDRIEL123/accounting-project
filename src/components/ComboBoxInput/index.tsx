@@ -37,6 +37,7 @@ function ComboBoxInput(props: ComboBoxProps) {
             setLoading(false)
         }
 
+        setValue(register.name, null)
         fetchData()
     }, [endpoint])
 
@@ -67,7 +68,7 @@ function ComboBoxInput(props: ComboBoxProps) {
                         if (newValue) {
                             setValue(register.name, newValue.value)
                         } else {
-                            setValue(register.name, '')
+                            setValue(register.name, 0)
                         }
 
                     }}

@@ -14,14 +14,34 @@ import * as React from "react"
 
 const menus: { title: string; href: string; description: string }[] = [
     {
-        title: "Produtos",
-        href: "/products",
-        description: "Gerenciamento de Produtos",
-    },
-    {
-        title: "Clientes",
+        title: "Clientes/Fornecedores",
         href: "/people",
         description: "Gerenciamento de Clientes/Fornecedores",
+    },
+    {
+        title: "Bens/Produtos",
+        href: "/assets",
+        description: "Gerenciamento de Bens/Produtos",
+    },
+    {
+        title: "Contas Contábeis",
+        href: "/accounts",
+        description: "Gerenciamento de Contas Contábeis",
+    },
+    {
+        title: "Lançamentos Contábeis",
+        href: "/releases",
+        description: "Gerenciamento de Lançamentos Contábeis",
+    },
+    {
+        title: "Notas Fiscais",
+        href: "/notes",
+        description: "Gerenciamento de Notas Fiscais",
+    },
+    {
+        title: "Balanço Patrimonial",
+        href: "/patrimony-balance",
+        description: "Relatório de Balanço Patrimonial",
     }
 ]
 
