@@ -13,7 +13,7 @@ const ClientsPage = () => {
         <>
             <Header />
             <Typography className="ml-5 mt-5 text-2xl text-center">
-                {'Gerenciamento de Clientes '}
+                {'Gerenciamento de Clientes/Fornecedores '}
             </Typography>
             <Suspense fallback={<p>Carregando...</p>}>
                 <DataTable
